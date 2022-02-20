@@ -31,6 +31,11 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_cupid
 # Screen density
 TARGET_SCREEN_DENSITY := 440
 
+# Sensors
+SOONG_CONFIG_NAMESPACES += SENSORS_XIAOMI
+SOONG_CONFIG_SENSORS_XIAOMI += USES_UDFPS_SENSOR
+SOONG_CONFIG_SENSORS_XIAOMI_USES_UDFPS_SENSOR := true
+
 # Inherit from sm8450-common
 include device/xiaomi/sm8450-common/BoardConfigCommon.mk
 
