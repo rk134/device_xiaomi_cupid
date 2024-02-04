@@ -41,7 +41,7 @@ class KeyHandler(
     }
 
     companion object {
-        private const val TAG = "MarbleKeyHandler"
+        private const val TAG = "XiaomiKeyHandler"
         private const val KEYCODE_FP_DOUBLE_TAP_FPC = 106
         private const val KEYCODE_FP_DOUBLE_TAP_GOODIX = 306
 
