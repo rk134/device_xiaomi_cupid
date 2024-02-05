@@ -19,3 +19,12 @@ include device/xiaomi/sm8450-common/BoardConfigCommon.mk
 
 # Include proprietary files
 include vendor/xiaomi/cupid/BoardConfigVendor.mk
+
+# HIDL
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
+
+# OTA
+TARGET_OTA_ASSERT_DEVICE := cupid|22011223G
+
+# Screen density
+TARGET_SCREEN_DENSITY := 480

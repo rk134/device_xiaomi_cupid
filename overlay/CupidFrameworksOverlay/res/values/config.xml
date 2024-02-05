@@ -48,12 +48,12 @@
 
      <!-- Minimum screen brightness setting allowed by power manager.
           The user is forbidden from setting the brightness below this level. -->
-     <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.0470588</item>
+     <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.000915639</item>
 
      <!-- Screen brightness used to dim the screen when the user activity
           timeout expires.  May be less than the minimum allowed brightness setting
           that can be set by the user. -->
-     <item name="config_screenBrightnessDimFloat" format="float" type="dimen">0.0470588</item>
+     <item name="config_screenBrightnessDimFloat" format="float" type="dimen">0.000915639</item>
 
      <!-- The display uses different gamma curves for different refresh rates. It's hard for panel
           vendors to tune the curves to have exact same brightness for different refresh rate. So
