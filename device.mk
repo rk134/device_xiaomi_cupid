@@ -66,6 +66,10 @@ PRODUCT_PACKAGES += \
     CupidWifiOverlay \
     CupidWifiMainlineOverlay
 
+# Powershare
+PRODUCT_PACKAGES += \
+    vendor.aospa.powershare-service
+
 # Qualcomm XR
 PRODUCT_PACKAGES += \
     libgrpc++_unsecure.vendor

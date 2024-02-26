@@ -17,7 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Build fingerprint from stock ROM -->
-    <string name="config_stockFingerprint" translatable="false">Xiaomi/cupid_eea/cupid:12/SKQ1.230401.001/V816.0.3.0.ULCEUXM:user/release-keys</string>
+    <string name="config_stockFingerprint" translatable="false">Xiaomi/cupid_global/cupid:12/SKQ1.230401.001/V816.0.3.0.ULCEUXM:user/release-keys</string>
 
     <!-- Device model (Build.MODEL) to spoof for netflix -->
     <string name="config_netflixSpoofModel" translatable="false">22011223G</string>
