@@ -66,6 +66,10 @@ PRODUCT_PACKAGES += \
     CupidWifiOverlay \
     CupidWifiMainlineOverlay
 
+# Qualcomm XR
+PRODUCT_PACKAGES += \
+    libgrpc++_unsecure.vendor
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@2.1-service.xiaomi-multihal \

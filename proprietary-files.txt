@@ -117,6 +117,12 @@ vendor/lib64/libultrasound_notify.so
 vendor/lib64/libxlog.so
 
 # Audio configs
+vendor/etc/audio/sku_taro/audio_effects.xml
+vendor/etc/audio/sku_taro/audio_policy_configuration.xml
+vendor/etc/audio/sku_taro/mixer_paths_overlay_dynamic.xml
+vendor/etc/audio/sku_taro/mixer_paths_overlay_static.xml
+vendor/etc/audio/sku_taro/mixer_paths_waipio_mtp.xml
+vendor/etc/audio/sku_taro/resourcemanager_waipio_mtp.xml
 vendor/etc/audio_cloud_control_white_list.xml
 vendor/etc/audio_policy_engine_configuration_mi.xml:vendor/etc/audio_policy_engine_configuration.xml
 vendor/etc/audio_policy_engine_default_stream_volumes.xml
@@ -130,12 +136,6 @@ vendor/etc/models/acd/event.eai
 vendor/etc/models/acd/music.eai
 vendor/etc/models/acd/speech.eai
 vendor/etc/usecaseKvManager.xml
-vendor/etc/audio/sku_taro/audio_effects.xml
-vendor/etc/audio/sku_taro/audio_policy_configuration.xml
-vendor/etc/audio/sku_taro/mixer_paths_overlay_dynamic.xml
-vendor/etc/audio/sku_taro/mixer_paths_overlay_static.xml
-vendor/etc/audio/sku_taro/mixer_paths_waipio_mtp.xml
-vendor/etc/audio/sku_taro/resourcemanager_waipio_mtp.xml
 
 # Audio firmware
 vendor/firmware/B-cs35l41-dsp1-spk-cali.bin
@@ -1097,6 +1097,66 @@ vendor/firmware/gmu_gen70000.bin
 
 # Media (Dolby)
 vendor/etc/dolby_vision.cfg
+
+# Qualcomm XR
+vendor/bin/hw/qvrservice
+vendor/bin/hw/sxrservice
+vendor/etc/init/qvrd_vndr.rc
+vendor/etc/init/sxrd.rc
+vendor/etc/qvr/cfg/339/0/65536/mtp855.txt
+vendor/etc/qvr/cfg/339/0/65536/mtp855_6dof_config.xml
+vendor/etc/qvr/cfg/356/0/65536/mtp865.txt
+vendor/etc/qvr/cfg/356/0/65536/mtp865_6dof_config.xml
+vendor/etc/qvr/cfg/356/1/131072/morpheus.txt
+vendor/etc/qvr/cfg/356/1/131072/morpheus_6dof_config.xml
+vendor/etc/qvr/cfg/356/1/65536/trinity.txt
+vendor/etc/qvr/cfg/356/1/65536/trinity_6dof_config.xml
+vendor/etc/qvr/cfg/415/0/131072/mtplahaina.txt
+vendor/etc/qvr/cfg/415/0/131072/mtplahaina_6dof_config.xml
+vendor/etc/qvr/cfg/415/0/65536/mtplahaina.txt
+vendor/etc/qvr/cfg/415/0/65536/mtplahaina_6dof_config.xml
+vendor/etc/qvr/cfg/457/0/65536/mtpwaipio.txt
+vendor/etc/qvr/cfg/457/0/65536/mtpwaipio_6dof_config.xml
+vendor/etc/qvr/cfg/457/0/65536/mtpwaipio_qvr_3dof_tracker_config.txt
+vendor/etc/qvr/cfg/457/0/65537/mtpwaipio.txt
+vendor/etc/qvr/cfg/457/0/65537/mtpwaipio_6dof_config.xml
+vendor/etc/qvr/cfg/457/0/65537/mtpwaipio_qvr_3dof_tracker_config.txt
+vendor/etc/qvr/cfg/457/3/65536/mtpwaipio.txt
+vendor/etc/qvr/cfg/457/3/65536/mtpwaipio_6dof_config.xml
+vendor/etc/qvr/cfg/457/3/65536/mtpwaipio_qvr_3dof_tracker_config.txt
+vendor/etc/qvr/cfg/457/3/65537/mtpwaipio.txt
+vendor/etc/qvr/cfg/457/3/65537/mtpwaipio_6dof_config.xml
+vendor/etc/qvr/cfg/457/3/65537/mtpwaipio_qvr_3dof_tracker_config.txt
+vendor/etc/qvr/qvr_hid_device_list.txt
+vendor/etc/qvr/qvr_usb_device_list.txt
+vendor/etc/qvr/qvrservice_config.txt
+vendor/etc/seccomp_policy/qvr@2.0.policy
+vendor/etc/seccomp_policy/sxr@2.0.policy
+vendor/etc/vintf/manifest/vendor.qti.hardware.qxr-service.xml
+vendor/lib64/libDspIOProxy_stub.so
+vendor/lib64/libMapService.so
+vendor/lib64/libScenescape.so
+vendor/lib64/libStereoRectifyWrapper.so
+vendor/lib64/libhalide_hexagon_host.so
+vendor/lib64/libqtr_sdk.so
+vendor/lib64/libqvr_cam_cdsp_driver_stub.so
+vendor/lib64/libqvr_cdsp_driver_stub.so
+vendor/lib64/libqvr_eyetracking_plugin.so
+vendor/lib64/libqvr_hostcontroller_plugin.so
+vendor/lib64/libqvrcamera_client.qti.so
+vendor/lib64/libqvrservice.so
+vendor/lib64/libqvrservice_client.qti.so
+vendor/lib64/libsensor_calibration.so
+vendor/lib64/libsxrcryptoimpl.so
+vendor/lib64/libsxrservice.so
+vendor/lib64/libtracker_6dof_impl.so
+vendor/lib64/qti.video.utils.videobufferlayout.so
+vendor/lib64/vendor.qti.hardware.qxr-V1-ndk_platform.so
+
+# Qualcomm XR - from V14.0.2.0.TLCMIXM
+vendor/lib64/libqvrservice_ov7251_hvx_tuning.so
+vendor/lib64/libqvrservice_ov9282_hvx_tuning.so
+vendor/lib64/libqvrservice_v4l_ov7251_hvx_tuning.so
 
 # Sensors config
 vendor/etc/sensors/calibratedCheck.json
