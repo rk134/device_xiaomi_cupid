@@ -27,6 +27,9 @@ public class HighTouchPollingService extends Service {
     private static final String SETTING_KEY = "touch_polling_enabled";
     private static final String TS_NODE = "/sys/devices/platform/goodix_ts.0/goodix_ts_report_rate";
 
+    // from kernel drivers/input/touchscreen/xiaomi/xiaomi_touch.h
+    private static final int TOUCH_GAME_MODE = 0;
+
     private boolean mEnabled;
     private boolean mScreenOn = true;
     private PowerManager mPowerManager;
@@ -103,8 +106,13 @@ public class HighTouchPollingService extends Service {
         dlog("writeCurrentValue: mEnabled=" + mEnabled + " mScreenOn=" + mScreenOn
                 + " isPowerSave=" + isPowerSave);
 
-        if (mScreenOn)
-            FileUtils.writeLine(TS_NODE, mEnabled && !isPowerSave ? "1" : "0");
+        if (mScreenOn) {
+            if (FileUtils.fileExists(TS_NODE)) {
+                FileUtils.writeLine(TS_NODE, mEnabled && !isPowerSave ? "1" : "0");
+            } else {
+                TfWrapper.setModeValue(TOUCH_GAME_MODE, mEnabled && !isPowerSave ? 1 : 0);
+            }
+        }
     }
 
     private static void dlog(String msg) {
@@ -112,5 +120,5 @@ public class HighTouchPollingService extends Service {
             Log.d(TAG, msg);
         }
     }
-    
+
 }
