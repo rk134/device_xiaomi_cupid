@@ -29,11 +29,8 @@ allow hal_fingerprint_default hal_xiaomi_fingerprint_hwservice:hwservice_manager
 
 allow hal_fingerprint_default vendor_hal_perf_hwservice:hwservice_manager find;
 
-<<<<<<< HEAD
 allow hal_fingerprint_default vendor_displayfeature:chr_file { ioctl open read write };
 
-=======
->>>>>>> parent of 55668c0 (sm8450-common: Implement and build udfpshandler)
 binder_call(hal_fingerprint_default, vendor_hal_perf_default)
 
 r_dir_file(hal_fingerprint_default, firmware_file)
