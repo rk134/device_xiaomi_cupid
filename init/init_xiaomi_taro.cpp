@@ -31,7 +31,8 @@
  */
 
 #include <cstdlib>
-#include <string.h>
+#include <string>
+#include <vector>
 
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
@@ -39,6 +40,8 @@
 
 #include "property_service.h"
 #include "vendor_init.h"
+
+#include <libinit_variant.h>
 
 using android::base::GetProperty;
 using std::string;
@@ -67,29 +70,23 @@ void set_ro_build_prop(const string &prop, const string &value) {
     }
 }
 
-void set_device_props(const string brand, const string device,
-        const string model, const string name, const string marketname) {
-    set_ro_build_prop("brand", brand);
-    set_ro_build_prop("device", device);
-    set_ro_build_prop("model", model);
-    set_ro_build_prop("name", name);
-    set_ro_build_prop("marketname", marketname);
-    property_override("ro.product.board", device.c_str());
-    property_override("bluetooth.device.default_name", marketname.c_str());
+void set_variant_props(const variant_info_t variant) {
+    set_ro_build_prop("brand", variant.brand);
+    set_ro_build_prop("device", variant.device);
+    set_ro_build_prop("model", variant.model);
+    set_ro_build_prop("name", variant.name);
+    set_ro_build_prop("marketname", variant.marketname);
+    property_override("ro.product.board", variant.device.c_str());
+    property_override("bluetooth.device.default_name", variant.marketname.c_str());
 }
 
-void vendor_load_properties() {
-    // Detect variant and override properties
-    string region = GetProperty("ro.boot.hwc", "");
+void search_set_variant_props(const std::vector<variant_info_t> variants) {
+    string hwc = GetProperty("ro.boot.hwc", "");
 
-    if (region == "CN") { // China
-        set_device_props("Redmi", "marble", "23049RAD8C", "marble", "Redmi Note 12 Turbo");
-    } else if (region == "IN") { // India
-        set_device_props("POCO", "marblein", "23049PCD8I", "marblein", "POCO F5");
-    } else { // Global
-        set_device_props("POCO", "marble", "23049PCD8G", "marble_global", "POCO F5");
+    for (const auto& variant : variants) {
+        if (variant.hwc == hwc) {
+            set_variant_props(variant);
+            break;
+        }
     }
-
-    // Set hardware revision
-    property_override("ro.boot.hardware.revision", GetProperty("ro.boot.hwversion", "").c_str());
 }
