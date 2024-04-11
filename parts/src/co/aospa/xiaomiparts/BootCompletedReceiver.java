@@ -73,7 +73,8 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         ThermalUtils.startService(context);
 
         // Gesture: Double tap FPS
-        if (GestureUtils.isFpDoubleTapEnabled(context)) {
+        if (GestureUtils.isFpDoubleTapAvailable(context)
+                && GestureUtils.isFpDoubleTapEnabled(context)) {
             GestureUtils.setFingerprintNavigation(true);
         }
     }

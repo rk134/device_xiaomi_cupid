@@ -44,6 +44,11 @@ public class GestureUtils {
         }
     }
 
+    public static boolean isFpDoubleTapAvailable(Context context) {
+        return context.getResources().getBoolean(
+                com.android.internal.R.bool.config_is_powerbutton_fps);
+    }
+
     public static boolean isFpDoubleTapEnabled(Context context) {
         return Settings.System.getIntForUser(context.getContentResolver(), SETTING_KEY_ENABLE,
                 0, UserHandle.USER_CURRENT) == 1;

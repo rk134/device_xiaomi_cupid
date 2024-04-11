@@ -81,6 +81,7 @@
             android:name=".gestures.FpDoubleTapActivity"
             android:label="@string/fp_double_tap_title"
             android:theme="@style/Theme.SubSettingsBase"
+            android:enabled="@*android:bool/config_is_powerbutton_fps"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
