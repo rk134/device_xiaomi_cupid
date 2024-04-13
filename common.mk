@@ -309,6 +309,7 @@ PRODUCT_PACKAGES += \
     AOSPAXiaomiTaroFrameworksOverlay \
     AOSPAXiaomiTaroSettingsOverlay \
     AOSPAXiaomiTaroSystemUIOverlay \
+    DcDimmingFrameworksOverlay \
     XiaomiTaroCarrierConfigOverlay \
     XiaomiTaroFrameworksOverlay \
     XiaomiTaroSettingsOverlay \

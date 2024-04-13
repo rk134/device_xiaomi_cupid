@@ -16,6 +16,7 @@ import android.content.Intent;
 import android.database.ContentObserver;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.Log;
@@ -23,6 +24,7 @@ import android.util.Log;
 public class DcDimmingService extends Service {
 
     private static final String TAG = "DcDimmingService";
+    private static final String DC_DIMMING_PROP = "ro.vendor.display.dc_dimming_supported";
 
     private boolean mIsDcDimmingEnabled;
     private boolean mIsScreenOn;
@@ -65,6 +67,10 @@ public class DcDimmingService extends Service {
     }
 
     public static void startService(Context context) {
+        if (SystemProperties.getBoolean(DC_DIMMING_PROP, false)) {
+            Log.i(TAG, "dc dimming is not supported");
+            return;
+        }
         context.startServiceAsUser(new Intent(context, DcDimmingService.class), UserHandle.CURRENT);
     }
 
