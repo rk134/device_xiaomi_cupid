@@ -44,6 +44,12 @@ public class GestureUtils {
         }
     }
 
+    public static void onBootCompleted(Context context) {
+        if (isFpDoubleTapAvailable(context) && isFpDoubleTapEnabled(context)) {
+            setFingerprintNavigation(true);
+        }
+    }
+
     public static boolean isFpDoubleTapAvailable(Context context) {
         return context.getResources().getBoolean(
                 com.android.internal.R.bool.config_is_powerbutton_fps);
