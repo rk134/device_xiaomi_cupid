@@ -1133,10 +1133,6 @@ vendor/lib64/libqvrservice_ov7251_hvx_tuning.so
 vendor/lib64/libqvrservice_ov9282_hvx_tuning.so
 vendor/lib64/libqvrservice_v4l_ov7251_hvx_tuning.so
 
-# Sensors - ultrasound
-vendor/lib64/libultrasound_notify.so
-vendor/lib64/sensors.ultrasoundproximity.so
-
 # Sensors config
 vendor/etc/sensors/calibratedCheck.json
 vendor/etc/sensors/config/ak991x_dri_0.json

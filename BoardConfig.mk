@@ -20,8 +20,8 @@ include device/xiaomi/sm8450-common/BoardConfigCommon.mk
 # Include proprietary files
 include vendor/xiaomi/cupid/BoardConfigVendor.mk
 
-# HIDL
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
+# Bootloader
+TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/configs/board/board-info.txt
 
 # OTA
 TARGET_OTA_ASSERT_DEVICE := cupid|22011223G
@@ -41,5 +41,9 @@ SOONG_CONFIG_SENSORS_XIAOMI_USES_UDFPS_SENSOR := true
 # Sepolicy
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
+# Init
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_cupid
+TARGET_RECOVERY_DEVICE_MODULES := libinit_cupid
+
 # Screen density
-TARGET_SCREEN_DENSITY := 480
+TARGET_SCREEN_DENSITY := 420
