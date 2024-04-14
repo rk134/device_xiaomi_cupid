@@ -22,8 +22,4 @@ android_app {
         "vendor.xiaomi.hardware.fingerprintextension-V1.0-java",
         "vendor.xiaomi.hw.touchfeature-V1.0-java"
     ],
-
-    optimize: {
-        proguard_flags_files: ["proguard.flags"],
-    },
 }
