@@ -27,23 +27,14 @@ PRODUCT_CHARACTERISTICS := nosdcard
 
 # Display
 PRODUCT_ODM_PROPERTIES += \
-    vendor.display.disable_3d_adaptive_tm=0 \
     vendor.display.enable_fb_scaling=1 \
-    vendor.display.enable_rounded_corner=0 \
     vendor.display.enable_optimize_refresh=1
 
 PRODUCT_VENDOR_PROPERTIES += \
-    ro.vendor.display.ai_disp.enable=true \
-    ro.vendor.display.hwc_thermal_dimming=true \
-    ro.vendor.display.mi_calib.enable=true \
-    ro.vendor.display.nature_mode.enable=true \
-    ro.vendor.histogram.enable=true \
-    ro.vendor.sre.enable=true \
-    ro.vendor.xiaomi.bl.poll=true
+    ro.vendor.display.dc_dimming_supported=true
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.xiaomi \
     libudfpshandler
 
 PRODUCT_COPY_FILES += \
@@ -51,6 +42,13 @@ PRODUCT_COPY_FILES += \
 
 # Kernel
 KERNEL_PREBUILT_DIR := $(LOCAL_PATH)-kernel
+
+# Keylayout
+PRODUCT_PACKAGES += \
+    $(LOCAL_PATH)/configs/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-goodix.kl \
+
+# NFC
+TARGET_NFC_SKU := cupid
 
 # Overlays
 PRODUCT_PACKAGES += \
@@ -75,10 +73,6 @@ PRODUCT_PACKAGES += \
     libgrpc++_unsecure.vendor
 
 # Sensors
-PRODUCT_PACKAGES += \
-    android.hardware.sensors@2.1-service.xiaomi-multihal \
-    sensors.xiaomi
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
