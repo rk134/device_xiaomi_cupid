@@ -29,6 +29,8 @@ allow hal_fingerprint_default hal_xiaomi_fingerprint_hwservice:hwservice_manager
 
 allow hal_fingerprint_default vendor_hal_perf_hwservice:hwservice_manager find;
 
+allow hal_fingerprint_default vendor_touchfeature_device:chr_file rw_file_perms;
+
 allow hal_fingerprint_default vendor_displayfeature:chr_file { ioctl open read write };
 
 binder_call(hal_fingerprint_default, vendor_hal_perf_default)
