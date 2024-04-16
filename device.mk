@@ -73,6 +73,16 @@ PRODUCT_PACKAGES += \
     libgrpc++_unsecure.vendor
 
 # Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@2.1-service.xiaomi-multihal \
+    sensors.xiaomi
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.vendor.audio.us.proximity=true \
+    ro.vendor.audio.us.proximity_waitfornegative_feature=true \
+    vendor.audio.ultrasound.stoplatency=60 \
+    vendor.audio.ultrasound.usync=1000
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
