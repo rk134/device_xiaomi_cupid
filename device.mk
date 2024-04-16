@@ -35,7 +35,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.xiaomi
+	libudfpshandler \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.cupid.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.cupid.rc
@@ -73,8 +73,18 @@ PRODUCT_PACKAGES += \
     libgrpc++_unsecure.vendor
 
 # Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@2.1-service.xiaomi-multihal \
+    sensors.xiaomi
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.vendor.audio.us.proximity=true \
+    ro.vendor.audio.us.proximity_waitfornegative_feature=true \
+    vendor.audio.ultrasound.stoplatency=60 \
+    vendor.audio.ultrasound.usync=1000
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

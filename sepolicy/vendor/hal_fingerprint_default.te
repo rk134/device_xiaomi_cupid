@@ -1,4 +1,4 @@
-allow hal_fingerprint_default touchfeature_device:chr_file rw_file_perms;
+allow hal_fingerprint_default vendor_touchfeature_device:chr_file rw_file_perms;
 
 allow hal_fingerprint_default sysfs_tp_fodstatus:chr_file r_file_perms;
 
