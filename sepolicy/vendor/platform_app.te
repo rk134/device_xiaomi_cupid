@@ -1,1 +1,2 @@
 hal_client_domain(platform_app, vendor_hal_soter);
+allow platform_app hal_xiaomi_camera_hwservice:hwservice_manager find;
