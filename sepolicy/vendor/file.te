@@ -1,2 +1,8 @@
+# Audio
+type audio_socket, file_type;
+
 # Fingerprint
 type sysfs_tp_fodstatus, fs_type, sysfs_type;
+
+# Sensors
+type vendor_sysfs_iio, fs_type, sysfs_type;
