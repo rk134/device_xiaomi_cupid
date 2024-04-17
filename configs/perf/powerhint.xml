@@ -3383,9 +3383,19 @@
 
         <!-- Expensive Rendering -->
         <!-- GPU MIN_FREQUENCY resource opcode,value -->
+
+        <!-- 515 Mhz, RPMH_REGULATOR_LEVEL_SVS -->
         <Config
             Id="0x000010A5" Enable="true" Timeout="0" Target="ukee"
-            Resources="0x42804000, 3"/>
+            Resources="0x42804000, 1"/>
+        <Config
+            Id="0x000010A5" Enable="true" Timeout="0" Target="cape"
+            Resources="0x42804000, 7"/>
+
+        <!-- 492 Mhz, RPMH_REGULATOR_LEVEL_SVS -->
+        <Config
+            Id="0x000010A5" Enable="true" Timeout="0" Target="taro"
+            Resources="0x42804000, 6"/>
 
     </Powerhint>
 </HintConfigs>
