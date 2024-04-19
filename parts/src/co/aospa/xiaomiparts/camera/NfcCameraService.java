@@ -23,7 +23,7 @@ import java.util.Set;
 public class NfcCameraService extends Service {
 
     private static final String TAG = "NfcCameraService";
-    private static final String SYSPROP = "persist.nfc.camera.pause_polling"
+    private static final String SYSPROP = "persist.nfc.camera.pause_polling";
 
     private static final int MAX_POLLING_PAUSE_TIMEOUT = 40000;
     private static final String FRONT_CAMERA_ID = "1";
