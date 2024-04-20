@@ -15,8 +15,7 @@
 #include <fstream>
 #include <thread>
 
-#include <display/drm/mi_disp.h>
-
+#include "mi_disp.h"
 #include "UdfpsHandler.h"
 #include "xiaomi_touch.h"
 
@@ -91,7 +90,7 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
         disp_fd_ = android::base::unique_fd(open(DISP_FEATURE_PATH, O_RDWR));
 
         std::string fpVendor = android::base::GetProperty("persist.vendor.sys.fp.vendor", "none");
-        LOG(INFO) << __func__ << "fingerprint vendor is: " << fpVendor;
+        LOG(ERROR) << __func__ << "fingerprint vendor is: " << fpVendor;
         isFpcFod = fpVendor == "fpc_fod";
 
         // Thread to notify fingeprint hwmodule about fod presses
@@ -171,7 +170,7 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
                 }
 
                 int value = response->data[0];
-                LOG(INFO) << "received data: " << std::bitset<8>(value);
+                LOG(ERROR) << "received data: " << std::bitset<8>(value);
 
                 bool localHbmUiReady = value & LOCAL_HBM_UI_READY;
 
@@ -182,7 +181,7 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
     }
 
     void onFingerDown(uint32_t x, uint32_t y, float /*minor*/, float /*major*/) {
-        LOG(INFO) << __func__ << "x: " << x << ", y: " << y;
+        LOG(ERROR) << __func__ << "x: " << x << ", y: " << y;
         // Track x and y coordinates
         lastPressX = x;
         lastPressY = y;
@@ -201,13 +200,13 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
     }
 
     void onFingerUp() {
-        LOG(INFO) << __func__;
+        LOG(ERROR) << __func__;
         // Ensure touchscreen is aware of the press state, ideally this is not needed
         setFingerDown(false);
     }
 
     void onAcquired(int32_t result, int32_t vendorCode) {
-        LOG(INFO) << __func__ << " result: " << result << " vendorCode: " << vendorCode;
+        LOG(ERROR) << __func__ << " result: " << result << " vendorCode: " << vendorCode;
         if (result == FINGERPRINT_ACQUIRED_GOOD) {
             // Request to disable HBM already, even if the finger is still pressed
             disp_local_hbm_req req;
@@ -237,24 +236,24 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
     }
 
     void cancel() {
-        LOG(INFO) << __func__;
+        LOG(ERROR) << __func__;
         enrolling = false;
 
         setFodStatus(FOD_STATUS_OFF_UNTIL_SUSPEND);
     }
 
     void preEnroll() {
-        LOG(INFO) << __func__;
+        LOG(ERROR) << __func__;
         enrolling = true;
     }
 
     void enroll() {
-        LOG(INFO) << __func__;
+        LOG(ERROR) << __func__;
         enrolling = true;
     }
 
     void postEnroll() {
-        LOG(INFO) << __func__;
+        LOG(ERROR) << __func__;
         enrolling = false;
 
         setFodStatus(FOD_STATUS_OFF_UNTIL_SUSPEND);
