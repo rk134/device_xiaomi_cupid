@@ -45,6 +45,7 @@
 # Sensors
 /vendor/bin/hw/vendor\.xiaomi\.sensor\.citsensorservice@2\.0-service      u:object_r:vendor_hal_citsensorservice_xiaomi_default_exec:s0
 /vendor/bin/hw/vendor\.xiaomi\.sensor\.communicate@1\.0-service           u:object_r:vendor_hal_sensorcommunicate_default_exec:s0
+/(vendor|system/vendor)/bin/disp2slpi u:object_r:vendor_disp2slpi_exec:s0
 
 # Thermal
 /vendor/bin/mi_thermald                                                   u:object_r:mi_thermald_exec:s0
