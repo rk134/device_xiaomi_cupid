@@ -19,7 +19,4 @@ cc_binary {
         "libssccalapi@2.0",
     ],
 
-    header_libs: [
-        "generated_kernel_headers",
-    ],
 }
